@@ -1,4 +1,4 @@
-# Industrial Predictive Maintenance Suite (LiveTwin)
+# Industrial Predictive Maintenance 
 
 An industrial condition monitoring and predictive maintenance (PdM) cyber-physical testbench for an RS-775 DC motor. Pairs real-time sensor telemetry and a closed-loop hardware safety interlock with an interactive 3D WebGL SCADA digital twin.
 
