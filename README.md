@@ -1,48 +1,52 @@
-# Industrial Predictive Maintenance Suite (LiveTwin)
+# ⚡ Industrial Predictive Maintenance Suite (LiveTwin)
 
-A real-time Condition Monitoring and Predictive Maintenance testbench for an RS-775 industrial DC motor. This system uses an ESP8266 Wi-Fi microcontroller, physical sensors, a 5V relay safety cut-off switch, a Python backend, and a 3D SCADA dashboard.
-
----
-
-## Hardware Components Used
-
-* **RS-775 DC Motor**: High-power motor under test
-* **ESP8266 NodeMCU**: Microcontroller with Wi-Fi
-* **LM35 Temperature Sensor**: Monitors motor temperature
-* **5V Relay Module**: Emergency automatic shut-off switch
-* **1N4007 Diode**: Protects electronics from motor voltage spikes
-* **12V DC Adapter**: Powers the motor
-* **Breadboard & Jumper Wires**: Connects the circuit
+An industrial condition monitoring and predictive maintenance (PdM) cyber-physical testbench for an RS-775 DC motor. Pairs real-time sensor telemetry and a closed-loop hardware safety interlock with an interactive 3D WebGL SCADA digital twin.
 
 ---
 
-## Step-by-Step Wiring Connections
+## 🛠️ Tech Stack & Components
 
-### 1. Breadboard & Sensor Connections
-* **ESP8266 VIN pin** -> Breadboard Positive Rail (+)
-* **ESP8266 GND pin** -> Breadboard Negative Rail (-)
-* **LM35 Left pin (VCC)** -> Breadboard Positive Rail (+)
-* **LM35 Middle pin (Signal)** -> ESP8266 pin A0
-* **LM35 Right pin (GND)** -> Breadboard Negative Rail (-)
+### Software
+* **Frontend:** React, Vite, Three.js (WebGL 3D SCADA Twin)
+* **Backend:** Python (Flask), REST / WebSockets
+* **Firmware:** C++ / Arduino (ESP8266 NodeMCU)
 
-### 2. Relay & Motor Safety Switch
-* **5V Relay VCC pin** -> Breadboard Positive Rail (+)
-* **5V Relay GND pin** -> Breadboard Negative Rail (-)
-* **5V Relay IN pin** -> ESP8266 pin D1
-* **12V Adapter Positive wire (+)** -> Relay COM terminal
-* **Relay NO terminal** -> Motor Positive (+) tab
-* **12V Adapter Negative wire (-)** -> Motor Negative (-) tab
-
-### 3. Diode Protection (Across Motor)
-* **1N4007 Diode Silver stripe side** -> Motor Positive (+) tab
-* **1N4007 Diode Black side** -> Motor Negative (-) tab
+### Hardware Under Test
+* **RS-775 High-Torque DC Motor** (12V)
+* **ESP8266 NodeMCU** (Wi-Fi Telemetry Node)
+* **LM35 Precision Centigrade Sensor** (Motor Casing Temperature)
+* **5V 1-Channel Relay Module** (Hardware Power-Cutoff Safety Interlock)
+* **1N4007 Diode** (Flyback / Back-EMF Surge Protection)
+* **12V DC Adapter / SMPS** (High-Current Motor Drive)
 
 ---
 
-## Project Status
+## 🔌 Hardware Pinout & Wiring Matrix (Phase 2 Spec)
 
-- [x] Phase 1: Clean folder setup and GitHub repository
-- [ ] Phase 2: Benchtop assembly and physical wiring
-- [ ] Phase 3: ESP8266 code for reading temperature and switching relay
-- [ ] Phase 4: Python backend live data stream
-- [ ] Phase 5: 3D interactive dashboard
+| Part Pin / Wire | Connects To | Purpose |
+| :--- | :--- | :--- |
+| **ESP8266 VIN** | Breadboard Positive Rail (`+`) | 5V Logic Power Feed |
+| **ESP8266 GND** | Breadboard Ground Rail (`-`) | Common Ground Reference |
+| **LM35 Left Pin (VCC)** | Breadboard Positive Rail (`+`) | 5V Sensor Supply |
+| **LM35 Middle Pin (Out)** | ESP8266 Pin **A0** | Analog Temperature Signal |
+| **LM35 Right Pin (GND)** | Breadboard Ground Rail (`-`) | Sensor Ground |
+| **5V Relay VCC** | Breadboard Positive Rail (`+`) | Relay Coil Power |
+| **5V Relay GND** | Breadboard Ground Rail (`-`) | Relay Ground |
+| **5V Relay IN** | ESP8266 Pin **D1** | Digital Safety Trip Control |
+| **12V Adapter Positive wire** | Relay **COM** Terminal | Switched Motor Power In |
+| **Relay NO Terminal** | RS-775 Motor **Positive (`+`) tab** | Motor Power Out |
+| **12V Adapter Negative wire** | RS-775 Motor **Negative (`-`) tab** | Direct Ground Return |
+| **1N4007 Diode (Silver Band)**| RS-775 Motor **Positive (`+`) tab** | Flyback Cathode |
+| **1N4007 Diode (Black End)** | RS-775 Motor **Negative (`-`) tab** | Flyback Anode |
+
+---
+
+## 📂 Repository Structure
+
+```text
+Industrial_Predictive_Maintenance/
+├── frontend/             # React + Three.js 3D Diagnostic SCADA
+├── backend/              # Python API & Telemetry Processing
+├── firmware/             # ESP8266 Microcontroller Code
+├── hardware/             # Wiring Schematics & BOM
+└── README.md             # Project Execution & Milestone Log
