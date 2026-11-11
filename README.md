@@ -1,10 +1,10 @@
-# ⚡ Industrial Predictive Maintenance Suite (LiveTwin)
+# Industrial Predictive Maintenance Suite (LiveTwin)
 
 An industrial condition monitoring and predictive maintenance (PdM) cyber-physical testbench for an RS-775 DC motor. Pairs real-time sensor telemetry and a closed-loop hardware safety interlock with an interactive 3D WebGL SCADA digital twin.
 
 ---
 
-## 🛠️ Tech Stack & Components
+##  Tech Stack & Components
 
 ### Software
 * **Frontend:** React, Vite, Three.js (WebGL 3D SCADA Twin)
@@ -21,7 +21,7 @@ An industrial condition monitoring and predictive maintenance (PdM) cyber-physic
 
 ---
 
-## 🔌 Hardware Pinout & Wiring Matrix (Phase 2 Spec)
+##  Hardware Pinout & Wiring Matrix (Phase 2 Spec)
 
 | Part Pin / Wire | Connects To | Purpose |
 | :--- | :--- | :--- |
@@ -41,7 +41,7 @@ An industrial condition monitoring and predictive maintenance (PdM) cyber-physic
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```text
 Industrial_Predictive_Maintenance/
